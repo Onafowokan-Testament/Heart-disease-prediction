@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Disease Prediction Form</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Heart Disease Prediction Form</h1>
+      <p>
+        Heart disease encompasses various conditions affecting the heart and
+        blood vessels. It's a leading cause of death globally, with risk factors
+        including high blood pressure, high cholesterol, smoking, diabetes,
+        obesity, lack of physical activity, poor diet, excessive alcohol
+        consumption, and family history. 
+      </p>
+      <form action="/predict/" method="post">
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" required />
+        </div>
+        <div class="form-group">
+          <label for="restingBP">Resting Blood Pressure:</label>
+          <input type="number" id="restingBP" name="restingBP" required />
+        </div>
+        <div class="form-group">
+          <label for="cholesterol">Cholesterol:</label>
+          <input type="number" id="cholesterol" name="cholesterol" required />
+        </div>
+        <div class="form-group">
+          <label for="maxhr">Maximum Heart Rate:</label>
+          <input type="number" id="maxhr" name="maxhr" required />
+        </div>
+        <div class="form-group">
+          <label for="sex">Sex:</label>
+          <select id="sex" name="sex" required>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="chest_pain_type">Chest Pain Type:</label>
+          <select id="chest_pain_type" name="chest_pain_type" required>
+            <option value="TA">Typical Angina</option>
+            <option value="ATA">Atypical Angina</option>
+            <option value="NAP">Non-Anginal Pain</option>
+            <option value="ASY">Asymptomatic</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exercise_agna">Exercise Angina:</label>
+          <select id="exercise_agna" name="exercise_agna" required>
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="st_slope">ST Slope:</label>
+          <select id="st_slope" name="st_slope" required>
+            <option value="Up">Upsloping</option>
+            <option value="Flat">Flat</option>
+            <option value="Down">Downsloping</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fasting_bs">Fasting Blood Sugar:</label>
+          <select id="fasting_bs" name="fasting_bs" required>
+            <option value="1">Greater than 120mg/dl</option>
+            <option value="0">Less than or equal to 120mg/dl</option>
+          </select>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

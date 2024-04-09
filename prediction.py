@@ -2,17 +2,17 @@ import pickle
 import numpy as np
 
 
+with open('features.pkl', 'rb') as f:
+    features = pickle.load(f)
+
+with open('scaler.pkl', 'rb') as f:
+    scaler = pickle.load(f)
+
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
+
+
 def heart_attack(age, restingBp, cholesterol, maxhr, sex, chest_pain_type, exercise_agna, st_slope, fasting_bs):
-
-    with open('features.pkl', 'rb') as f:
-        features = pickle.load(f)
-
-    with open('scaler.pkl', 'rb') as f:
-        scaler = pickle.load(f)
-
-    with open('model.pkl', 'rb') as f:
-        model = pickle.load(f)
-
     pred_test = np.zeros(len(features.columns))
 
     chest_pain_type_index = np.where(features.columns == chest_pain_type)[0][0]
@@ -31,6 +31,11 @@ def heart_attack(age, restingBp, cholesterol, maxhr, sex, chest_pain_type, exerc
     pred_test[st_slope_index] = 1
     pred_test[fasting_bs_index] = 1
 
+   
     scaled_prediction = scaler.transform([pred_test])
 
-    return model.predict(scaled_prediction)[0]
+    return model.predict(scaled_prediction)
+
+
+prediction = heart_attack(54, 140, 289, 172, 'F', 'ATA', 'N', 'Up', '0')
+

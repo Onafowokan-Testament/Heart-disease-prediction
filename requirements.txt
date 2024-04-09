@@ -1,7 +1,7 @@
 
 fastapi==0.110.1
 
-
+sklearn==0.0.post7
 
 matplotlib==3.8.2
 
